@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './authentication/components/login/login.component';
 import { SignupComponent } from './authentication/components/signup/signup.component';
+import { SideFilterComponent } from './shared/components/side-filter/side-filter.component';
 import { ContactComponent } from './user/components/contact/contact.component';
 import { EventsDetailComponent } from './user/components/events-detail/events-detail.component';
 import { EventsComponent } from './user/components/events/events.component';
@@ -26,6 +27,9 @@ const routes: Routes = [
   },
   {
     path:"contact",component:ContactComponent
+  },
+  {
+    path:"side-filter",component:SideFilterComponent
   }
 ];
 

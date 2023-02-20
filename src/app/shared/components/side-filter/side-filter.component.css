@@ -1,0 +1,178 @@
+.review-page .car-reviews {
+    display: flex;
+      
+    flex-wrap: wrap; }
+    .review-page .car-reviews .post {
+      display:inline-block;
+      vertical-align: top;
+      width: 100%;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 2px 0 #dddddd;
+      padding-bottom: 1rem;
+      border-radius: 5px;
+      overflow: hidden; }
+      @media screen and (min-width: 500px) {
+        .review-page .car-reviews .post {
+          width: calc(50% - 1rem); } }
+      .review-page .car-reviews .post .car-review {
+        margin: 1rem; }
+        .review-page .car-reviews .post .car-review .read-more {
+          white-space: nowrap; }
+      .review-page .car-reviews .post .heading {
+        margin-bottom: 1rem; }
+        .review-page .car-reviews .post .heading a {
+          color:  #e60000; }
+      .review-page .car-reviews .post .summary {
+        font-size: 14px; }
+      .review-page .car-reviews .post figure {
+        border-radius: 0;
+        height: 200px;
+        background-size: cover;
+        background-position: center center; }
+      .review-page .car-reviews .post .image-category {
+        border-radius: 5px;
+        color: white;
+        padding: 5px 10px 5px 10px;
+        display: inline-block;
+        font-size: 12px;
+        margin: 20px 20px -20px 20px; }
+      .review-page .car-reviews .post.full-width {
+        width: 100%; }
+  .review-page .audience {
+    background-color:  #e60000;
+    border-radius: 5px;
+    margin-bottom: 2rem;
+    padding: 2rem;
+    text-align: center;
+    color:  #e60000; }
+    @media screen and (min-width: 600px) {
+      .review-page .audience {
+        position: relative;
+        text-align: left;
+        padding: 2rem 2rem 2rem 8rem; } }
+    .review-page .audience:before {
+      content: "";
+      speak: none;
+      font-style: normal;
+      font-weight: normal;
+      font-family: 'icons';
+      color: white;
+      font-size: 4rem;
+      margin-bottom: 2rem; }
+      @media screen and (min-width: 600px) {
+        .review-page .audience:before {
+          position: absolute;
+          top: 2rem;
+          left: 2rem;
+          margin-bottom: 0; } }
+    .review-page .audience > .heading {
+      font-size: 20px;
+      margin-bottom: 1rem;
+      color: white;
+      display: block; }
+    .review-page .audience p:last-child {
+      margin-bottom: 0; }
+  .review-page .review-specifications > .heading {
+    font-size: 22px;
+    color:  #e60000;
+    padding-bottom: 1.5rem; }
+  .review-page .review-specifications table {
+    border: solid 1px #cdcdcd;
+    margin-bottom: 2rem; }
+    .review-page .review-specifications table .title {
+      font-weight: bold; }
+    .review-page .review-specifications table td {
+      padding: 1rem 2rem 1rem 1rem; }
+      .review-page .review-specifications table td.title {
+        background-color: #efefef; }
+      .review-page .review-specifications table td:not(:first-child) {
+        border-left: solid 1px #cdcdcd; }
+    .review-page .review-specifications table tr:not(:first-child) td {
+      border-top: solid 1px #cdcdcd; }
+  @media screen and (min-width: 700px) {
+  .main-column,
+  .secondary-column {
+    margin-bottom: 3rem;
+    flex-grow: 0;
+    flex-shrink: 0;
+    display: inline-block;
+    vertical-align: top; } }
+  
+  @media screen and (min-width: 700px) {
+  .main-column {
+    width: 57.14286%;
+    padding-right: 4rem; } }
+  @media screen and (min-width: 900px) {
+  .main-column {
+    width: 65.72727%; } }
+  
+  .secondary-column {
+  margin-bottom: 3rem; }
+  @media screen and (min-width: 700px) {
+    .secondary-column {
+      width:30.85714%; } }
+  @media screen and (min-width: 900px) {
+    .secondary-column {
+      width: 20.27273%; } }
+  .secondary-column .contact-form {
+    border-radius: 5px;
+    padding-top: 1rem;
+    border: solid 1px #dddddd;
+    box-shadow: 0 2px 2px 0 #dddddd;
+    margin-bottom: 2rem;
+    border-bottom: solid 3px #ef4058; }
+  .secondary-column .filter-sidebar {
+    box-shadow: 0 2px 2px 0 #dddddd;
+    border: solid 1px #dddddd;
+    border-radius: 5px; }
+    .secondary-column .filter-sidebar > .heading {
+      padding: 1rem 2rem;
+      color: white;
+      background-color: #ef4058;
+      font-size: 1.2rem; }
+    .secondary-column .filter-sidebar .filter-options {
+      padding: 1rem 2rem; }
+      .secondary-column .filter-sidebar .filter-options:not(:last-child) {
+        border-bottom: solid 1px #efefef; }
+    .secondary-column .filter-sidebar .custom-checkbox,
+    .secondary-column .filter-sidebar .category-option {
+      display: block;
+      font-size: 1.1rem;
+      width: 100%;
+      text-align: left; }
+      .secondary-column .filter-sidebar .custom-checkbox .number,
+      .secondary-column .filter-sidebar .category-option .number {
+        float: right;
+        margin-left: 1rem;
+        opacity: 0.5;
+        font-weight: normal; }
+    .secondary-column .filter-sidebar .subheading {
+      color:  #e60000; }
+    .secondary-column .filter-sidebar .category-option {
+      color: #666666;
+      background-color: #f9f9f9;
+      border: none;
+      box-shadow: none;
+      text-shadow: none;
+      border-radius: 5px;
+      border: solid 1px #dddddd;
+      padding: 0.5rem 1rem;
+      margin: 0.5rem 0;
+      font-weight: bold; }
+      .secondary-column .filter-sidebar .category-option:not(:last-child) {
+        border-bottom: solid 1px #dddddd; }
+      .secondary-column .filter-sidebar .category-option .color-indicator {
+        float: left;
+        display: block;
+        width: 1em;
+        height: 1em;
+        border-radius: 0.5em;
+        margin-right: 0.75rem; }
+      .secondary-column .filter-sidebar .category-option.active {
+        border-color: #ef4058; }
+    .secondary-column .filter-sidebar .custom-checkbox {
+      margin: 0.5rem 0; }
+      .review-page{
+        background-color: whitesmoke;
+      }
+    

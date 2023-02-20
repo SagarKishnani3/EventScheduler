@@ -126,12 +126,13 @@
   --------------------------------------------------------------*/
   #header {
     height: 90px;
-    position: fixed;
+    /* position: fixed; */
     left: 0;
     top: 0;
     right: 0;
     transition: all 0.5s;
     z-index: 997;
+    background: rgba(6, 12, 34, 0.8);
   }
   
   #header.header-scrolled,
@@ -456,4 +457,6 @@
   .navbar-mobile .dropdown>.dropdown-active {
     display: block;
   }
+
+  
   

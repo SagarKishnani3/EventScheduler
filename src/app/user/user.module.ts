@@ -5,6 +5,7 @@ import { EventsComponent } from './components/events/events.component';
 import { EventsDetailComponent } from './components/events-detail/events-detail.component';
 import { RouterModule } from '@angular/router';
 import { ContactComponent } from './components/contact/contact.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -18,6 +19,7 @@ import { ContactComponent } from './components/contact/contact.component';
   imports: [
     CommonModule,
     RouterModule,
+    SharedModule
     
   ],
   exports:[
