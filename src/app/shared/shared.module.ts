@@ -16,7 +16,7 @@ import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
   imports: [
     CommonModule,
     RouterModule,
-    NgbDropdownModule
+    NgbDropdownModule,
 
   ],
   exports:[

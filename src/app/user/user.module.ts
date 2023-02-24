@@ -6,6 +6,8 @@ import { EventsDetailComponent } from './components/events-detail/events-detail.
 import { RouterModule } from '@angular/router';
 import { ContactComponent } from './components/contact/contact.component';
 import { SharedModule } from '../shared/shared.module';
+import { ListYourShowsComponent } from './components/list-your-shows/list-your-shows.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -14,19 +16,23 @@ import { SharedModule } from '../shared/shared.module';
     HomeComponent,
     EventsComponent,
     EventsDetailComponent,
-    ContactComponent
+    ContactComponent,
+    ListYourShowsComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule,
+    FormsModule,
     
   ],
   exports:[
     HomeComponent,
     EventsComponent,
     EventsDetailComponent,
-    ContactComponent
+    ContactComponent,
+    ListYourShowsComponent
   ]
 })
 export class UserModule { }

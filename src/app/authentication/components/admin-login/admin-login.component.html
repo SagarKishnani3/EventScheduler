@@ -1,0 +1,43 @@
+<div>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" >
+      <div class="body">
+  
+      <div class="container">
+        <div class="backbox">
+          <div class="loginMsg">
+            <div class="textcontent">
+              <p class="title">Don't have an acc?</p>
+              <button id="switch1">Sign Up</button>
+            </div>
+          </div>
+          <div class="signupMsg visibility">
+            <div class="textcontent">
+              <p class="title">Have an account?</p>
+              <p>Log in to see all your collection.</p>
+              <button id="switch2">LOG IN</button>
+            </div>
+          </div>
+        </div>
+        <!-- backbox -->
+    
+        <div class="frontbox">
+          <div class="login">
+            <h2>ADMIN LOG IN</h2>
+            <div class="inputbox">
+              <input type="text" name="email" placeholder="  EMAIL" formControlName="email">
+              <span style="color:red" *ngIf="email && email.invalid && email.touched">*invalid*</span>
+              <input type="password" name="password" placeholder="  PASSWORD" formControlName="password">
+              <span style="color:red" *ngIf="password && password.invalid && password.touched">*invalid*</span>
+            </div>
+            <a href="#"style="color:aliceblue;text-decoration:none">Forget Password?</a>
+            <button [disabled]="loginForm.invalid">LOG IN</button>
+          </div>
+    
+    
+        </div>
+        <!-- frontbox -->
+      </div>
+  </div>
+  </form>
+</div>
+
