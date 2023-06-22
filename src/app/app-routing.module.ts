@@ -20,7 +20,7 @@ const routes: Routes = [
   },
   { path: '', redirectTo: '/home', pathMatch: 'full'},
   {
-    path:"events-detail",component:EventsDetailComponent
+    path:"events-detail/:eventid",component:EventsDetailComponent
   },
   {
     path:"login",component:LoginComponent

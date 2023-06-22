@@ -6,40 +6,73 @@
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
+    <div class="dropdown">
+      <button class="dropbtn">category</button>
+      <div class="dropdown-content">
+        <button (click)="select(1)">1 comedy</button>
+        <button (click)="select(2)">2 drama</button>
+        <button (click)="select(3)">3 movie</button>
+        <button (click)="select(4)">4 exhibitions</button>
+        <button (click)="select(5)">5 parties</button>
+        <button (click)="select(6)">6 sports</button>
+        <button (click)="select(7)">7 workshops</button>
+      </div>
+    </div>
     <div class="modal-body">
       <form [formGroup]="Reactiveform" (ngSubmit)="onSubmit()" >
-        <div class="form-group"  >
+        <!-- <div class="form-group"  >
             <label for="eventimage" >Image of Events</label>
             <div class="input-group"  >
               <input type="file"  class="file-upload-input" onchange="readURL(this)" accept="Image/*"  f>
             </div>
-          </div>
+          </div> -->
         <div class="form-group"  >
           <label for="driveTitle" >Event Name</label>
           <div class="input-group"  >
-            <input id="driveTitle"  class="form-control"  formControlName="driveTitle">
-            <span  style="color: red;" *ngIf="driveTitle &&driveTitle.invalid && driveTitle.touched">This field is required</span>
+            <input id="driveTitle"  class="form-control"  formControlName="eventname">
+            <span  style="color: red;" *ngIf="eventname &&eventname.invalid && eventname.touched">This field is required</span>
           </div>
         </div>
         <div class="form-group" >
-            <label for="driveDescription" >Location</label>
+            <label for="driveDescription" >State</label>
             <div class="input-group"  >
-              <input id="driveDescription" name="driveDescription" class="form-control" formControlName="driveDescription">
-              <span  style="color: red;" *ngIf="driveDescription &&driveDescription.invalid && driveDescription.touched">This field is required</span>
+              <input id="driveDescription" name="driveDescription" class="form-control" formControlName="state">
+              <span  style="color: red;" *ngIf="state &&state.invalid && state.touched">This field is required</span>
             </div>
+            <label for="driveDescription" >date</label>
+            <div class="input-group"  >
+              <input id="driveDescription" name="driveDescription" class="form-control" formControlName="date">
+              <span  style="color: red;" *ngIf="date&&date.invalid && date.touched">This field is required</span>
+            </div>
+            <label for="driveDescription" >city</label>
+            <div class="input-group"  >
+              <input id="driveDescription" name="driveDescription" class="form-control" formControlName="city">
+              <span  style="color: red;" *ngIf="city &&city.invalid && city.touched">This field is required</span>
+            </div>
+            
           </div>
           <div class="form-group" >
-            <label for="TargetedMoney" >No Of Seats</label>
+            <label for="TargetedMoney" >Timing</label>
             <div class="input-group" >
-              <input id="TargetedMoney"  name="TargetedMoney" class="form-control" formControlName="TargetedMoney">
-              <span  style="color: red;" *ngIf="TargetedMoney &&TargetedMoney.invalid && TargetedMoney.touched">This field is required</span>
+              <input id="TargetedMoney"  name="TargetedMoney" class="form-control" formControlName="timings">
+              <span  style="color: red;" *ngIf="timings &&timings.invalid && timings.touched">This field is required</span>
+            </div>
+            <label for="TargetedMoney" >Prices</label>
+            <div class="input-group" >
+              <input id="TargetedMoney"  name="TargetedMoney" class="form-control" formControlName="prices">
+              <span  style="color: red;" *ngIf="prices &&prices.invalid && prices.touched">This field is required</span>
+            </div>
+            <label for="TargetedMoney" >No of Seats</label>
+            <div class="input-group" >
+              <input id="TargetedMoney"  name="TargetedMoney" class="form-control" formControlName="noofseats">
+              <span  style="color: red;" *ngIf="noofseats &&noofseats.invalid && noofseats.touched">This field is required</span>
             </div>
           </div>
           <div class="form-group" >
             <label for="Info" >About Event</label>
             <div class="input-group" >
-              <textarea id="Info" rows="4" cols="50" name="Info" class="form-control" formControlName="Info"></textarea>
-              <span  style="color: red;" *ngIf="Info &&Info.invalid && Info.touched">This field is required</span>
+              <textarea id="Info" rows="4" cols="50" name="Info" class="form-control" formControlName="aboutevents"></textarea>
+              <span  style="color: red;" *ngIf="aboutevents &&aboutevents.invalid && aboutevents.touched">This field is required</span>
             </div>
           </div>
           <div>

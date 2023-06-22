@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthenticationService } from '../../authentication.service';
 
 @Component({
   selector: 'app-signup',
@@ -7,8 +8,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
+  validUser: any;
 
-  constructor() { }
+  constructor(private authservice:AuthenticationService) { }
 
   ngOnInit(): void {
     this.createForm()
@@ -16,14 +18,14 @@ export class SignupComponent implements OnInit {
   signupForm !: FormGroup
   createForm():void{
     this.signupForm=new FormGroup({
-      username: new FormControl('',[Validators.required]),
+      name: new FormControl('',[Validators.required]),
       email: new FormControl('',[Validators.required,Validators.email]),
       password: new FormControl('',[Validators.required]),
       confirmpassword: new FormControl('',[Validators.required])
     })
   }
-  get username(){
-    return this.signupForm.get('username');
+  get name(){
+    return this.signupForm.get('name');
   }
   get confirmpassword(){
     return this.signupForm.get('confirmpassword');
@@ -36,6 +38,35 @@ export class SignupComponent implements OnInit {
   }
   onSubmit(){
     console.warn(this.signupForm.value)
+    this.validateUSer();
+  }
+  validateUSer():void{
+    const user=this.signupForm.get('name')?.value
+    this.authservice.validateUser(user).subscribe((value:any)=>{
+      console.warn(value)
+      this.validUser=value.validUser
+      console.warn(this.validUser)
+      if(this.validUser){
+        if(this.signupForm.controls["password"].value==this.signupForm.controls["confirmpassword"].value){
+          const body=this.generateBody()
+        this.authservice.addUser(body).subscribe(()=>console.warn("done"));
+        }
+        else{
+          alert("pasword not match")
+        }
+      }
+      else{
+        alert("already exist")
+      }
+    })
+  }
+  generateBody(){
+    const body={
+      ...this.signupForm.value,
+      userid:1,
+    }
+    console.warn(body)
+    return body;
   }
 
 }

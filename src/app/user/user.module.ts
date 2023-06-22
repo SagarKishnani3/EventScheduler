@@ -8,6 +8,7 @@ import { ContactComponent } from './components/contact/contact.component';
 import { SharedModule } from '../shared/shared.module';
 import { ListYourShowsComponent } from './components/list-your-shows/list-your-shows.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 
@@ -25,6 +26,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     SharedModule,
     ReactiveFormsModule,
     FormsModule,
+   Ng2SearchPipeModule
     
   ],
   exports:[
@@ -32,7 +34,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     EventsComponent,
     EventsDetailComponent,
     ContactComponent,
-    ListYourShowsComponent
+    ListYourShowsComponent,
   ]
 })
 export class UserModule { }

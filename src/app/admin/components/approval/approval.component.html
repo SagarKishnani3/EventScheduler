@@ -1,29 +1,31 @@
 <div class="container">
-    <div class="row">
+    <div class="row" >
       <div class="search-hero">
         <input class="form-control" type="text" name="search"  autocomplete="off" placeholder="&#61442;  search for Events Holders">
       </div>
-      <div >
+      <div *ngFor="let item of data">
         <img src="" alt="error">
-        <h2>Event name</h2>
+        <h2>{{item.eventname}}</h2>
         <div>
-            <span > About:</span><span style="padding-left: 10px;">Info for Events</span>
+            <span > About:</span><span style="padding-left: 10px;">{{item.aboutevents}}</span>
             <br>
-            <span > District :</span><span style="padding-left: 10px;">Details</span>
+            <span > State :</span><span style="padding-left: 10px;">{{item.state}}</span>
             <br>
-            <span >City :</span><span style="padding-left: 10px;">Details</span>
+            <span >City :</span><span style="padding-left: 10px;">{{item.city}}</span>
             <br>
-            <span >Location :</span><span style="padding-left: 10px;">Details</span>
+            <span >date :</span><span style="padding-left: 10px;">{{item.date}}</span>
             <br>
             <span >contact-No:</span><span style="padding-left: 10px;">Details</span>
+            <br>
+            <span >Total no of seats:</span><span style="padding-left: 10px;">{{item.noofseats}}</span>
         </div>
         <!-- <div class="col-lg-4 d-none d-md-block col-md-6 btn-bhed">
             <button class="btn btn-sm btn-default" routerLink="/ngo" routerLinkActive="current">Donate</button> 
             <button class="btn btn-sm btn-success" (click)="navigate(Detail)" routerLinkActive="current">show more Details</button>  
         </div> -->
         <div>
-            <button class="buy-tickets">Approve</button> 
-            <button class="buy-tickets">Reject</button>
+            <button class="buy-tickets" (click)="adminApprovslRejection(item.eventname,1)">Approve</button> 
+            <button class="buy-tickets"(click)="adminApprovslRejection(item.eventname,0)">Reject</button>
         </div>
         <span>-------------------------------------------------------------------------------------</span>
     </div>

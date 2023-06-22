@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 // import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ModalDismissReasons,NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { UserService } from '../../user.service';
 
 @Component({
   selector: 'app-list-your-shows',
@@ -10,6 +11,7 @@ import { ModalDismissReasons,NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class ListYourShowsComponent implements OnInit {
   closeResult!: string;
+  data: any;
   open(content: any) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
@@ -28,33 +30,69 @@ export class ListYourShowsComponent implements OnInit {
   }
   Reactiveform = new FormGroup({
     
-    driveTitle: new FormControl("", Validators.required),
-    driveDescription: new FormControl("", Validators.required),
-    TargetedMoney: new FormControl("", Validators.required),
-    Info: new FormControl("",Validators.required)
+    eventname: new FormControl("", Validators.required),
+    state: new FormControl("", Validators.required),
+    date: new FormControl("", Validators.required),
+    city: new FormControl("", Validators.required),
+    timings: new FormControl("", Validators.required),
+    prices: new FormControl("", Validators.required),
+    noofseats: new FormControl("", Validators.required),
+    aboutevents: new FormControl("",Validators.required)
     
   });
 
-  constructor(private modalService:NgbModal) { }
+  constructor(private modalService:NgbModal,private user:UserService) { }
 
   ngOnInit(): void {
   }
   onSubmit(){
     
     console.log(this.Reactiveform.value)
+    this.addEvents();
   
 }
-get driveDescription(){
-  return  this.Reactiveform.get('driveDescription')
+get state(){
+  return  this.Reactiveform.get('state')
  }
- get driveTitle(){
-  return  this.Reactiveform.get('driveTitle')
+ get date(){
+  return  this.Reactiveform.get('date')
  }
- get TargetedMoney(){
-  return  this.Reactiveform.get('TargetedMoney')
+ get city(){
+  return  this.Reactiveform.get('city')
  }
- get Info(){
-  return this.Reactiveform.get('Info')
+ get timings(){
+  return  this.Reactiveform.get('timings')
  }
+ get prices(){
+  return  this.Reactiveform.get('prices')
+ }
+ get noofseats(){
+  return  this.Reactiveform.get('noofseats')
+ }
+ get eventname(){
+  return  this.Reactiveform.get('eventname')
+ }
+ get aboutevents(){
+  return this.Reactiveform.get('aboutevents')
+ }
+addEvents(){
+  const temp=this.generateBody()
+  console.log(temp)
+  this.user.listShows(temp).subscribe((value:any)=>{
+    console.warn("done added successfully");
+  })
+
+}
+select(value:any){
+  this.data=value
+}
+ generateBody(){
+  const body={
+    ...this.Reactiveform.value,
+    categoryid:this.data
+  }
+  console.warn(body)
+  return body
+}
 
 }

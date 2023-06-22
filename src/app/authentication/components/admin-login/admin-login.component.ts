@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
+import { AuthenticationService } from '../../authentication.service';
 
 @Component({
   selector: 'app-admin-login',
@@ -7,8 +10,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./admin-login.component.css']
 })
 export class AdminLoginComponent implements OnInit {
+  validLogin: any;
 
-  constructor() { }
+  constructor(private cookieservice:CookieService,private router:Router,private authenticationserviec:AuthenticationService) { }
 
   ngOnInit(): void {
     this.createForm()
@@ -29,6 +33,34 @@ export class AdminLoginComponent implements OnInit {
   }
   onSubmit(){
     console.warn(this.loginForm.value)
+    this.validateadmin()
+  }
+  validateadmin(){
+    const user=this.generateBody()
+    this.authenticationserviec.validamin(user).subscribe((value:any)=>{
+     // console.warn(value)
+     // console.warn(value.validLogin)
+      this.validLogin=value.valid
+      console.warn(this.validLogin)
+      if(this.validLogin!=0){
+        alert("succesfully login")
+        this.cookieservice.set("name",value.userName),
+              this.cookieservice.set("adminid",value.userID),
+              this.cookieservice.set("token",value.token),
+              this.router.navigate(['approval'])
+
+      }
+      else{
+        alert("false")
+      }
+    })
+  }
+  generateBody(){
+    const body={
+      ...this.loginForm.value
+    }
+   // console.warn(body)
+    return body
   }
 
 }
